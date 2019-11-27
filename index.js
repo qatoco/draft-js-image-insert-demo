@@ -4,9 +4,9 @@ import { EditorState, ContentState } from 'draft-js';
 import Editor, { composeDecorators } from 'draft-js-plugins-editor';
 import createImagePlugin from 'draft-js-image-plugin';
 import createResizeablePlugin from 'draft-js-resizeable-plugin';
-import { AddImageButton } from 'draft-js-buttons-plugin';
-import { BlockquoteButton } from 'draft-js-buttons';
 import createSideToolbarPlugin from 'draft-js-side-toolbar-plugin';
+import AddImageByURLButton from './AddImageByURLButton';
+import { AddImageButton } from 'draft-js-buttons-plugin';
 import 'draft-js-side-toolbar-plugin/lib/plugin.css';
 
 const resizeablePlugin = createResizeablePlugin();
@@ -28,8 +28,8 @@ class ExampleEditor extends Component {
         <SideToolbar>
           {externalProps => (
             <div>
+              <AddImageByURLButton {...externalProps} />
               <AddImageButton {...externalProps} />
-              <BlockquoteButton {...externalProps} />
             </div>
           )}
         </SideToolbar>
