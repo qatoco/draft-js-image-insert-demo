@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import insertDataBlock from 'draft-js-buttons-plugin/lib/utils/insertDataBlock.js';
 import axios from 'axios';
 
-const token = `?token=f9403fc5f537b4ab332d`;
+const token = '?token=token';
+const serverURL = 'http://localhost:25478';
 
 export default class imageButton extends Component {
   onClick = e => {
@@ -15,10 +16,10 @@ export default class imageButton extends Component {
     const file = e.target.files[0];
     const params = new FormData();
     params.append('file', file);
-    const response = await axios.post(`http://localhost:25478/upload${token}`, params, {
+    const response = await axios.post(`${serverURL}/upload${token}`, params, {
       headers: { 'Content-Type': `multipart/form-data; boundary=${params._boundary}` }
     });
-    const imageData = { src: `http://localhost:25478/${response.data.path}${token}`, type: 'placeholder' };
+    const imageData = { src: `${serverURL}/${response.data.path}${token}`, type: 'placeholder' };
     this.props.setEditorState(insertDataBlock(this.props.getEditorState(), imageData, 'image'));
   };
 
@@ -29,7 +30,7 @@ export default class imageButton extends Component {
   render() {
     const { theme } = this.props;
     return (
-      <div className={theme.buttonWrapper} onMouseDown={this.preventBubblingUp}>
+      <div className={theme.buttonWrapper} onMouseDown={this.preventBubblingUp} style={{ color: 'inherit' }}>
         <button className={theme.button} onClick={this.onClick} type="button">
           <svg width="24" height="24" viewBox="0 0 24 24">
             <path
@@ -41,7 +42,7 @@ export default class imageButton extends Component {
         </button>
 
         <div className={theme.addImage}>
-          <input type="file" ref="fileInput" onChange={::this.inputChange} style={{ display: 'none' }} />
+          <input type="file" ref="fileInput" onChange={this.inputChange} style={{ display: 'none' }} />
         </div>
       </div>
     );
