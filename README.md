@@ -19,10 +19,16 @@ open http://localhost:3000/ -a "/Applications/Google Chrome.app" --args --disabl
 
 ## demo
 
-mutiple file
+**mutiple file with file uploads**
 
 ![img](./demo1.gif)
 
-resize
+
+**mutiple file with blob ( no upload)**
 
 ![img](./demo2.gif)
+
+
+**resize iamges**
+
+![img](./demo3.gif)
