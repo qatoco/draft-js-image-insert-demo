@@ -1,5 +1,11 @@
 # draft-js-image-insert-demo
 
+## online demo
+
+https://zen-albattani-27c09c.netlify.com/
+
+## setup
+
 ```sh
 # 1. install and run demo page
 yarn && yarn start
