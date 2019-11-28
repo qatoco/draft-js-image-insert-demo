@@ -2,7 +2,8 @@
   "name": "draft-js-example",
   "version": "0.0.1",
   "scripts": {
-    "start": "webpack-dev-server --port 3000 --inline --hot --config ./webpack.config"
+    "start": "webpack-dev-server --port 3000 --inline --hot --config ./webpack.config",
+    "build": "webpack"
   },
   "devDependencies": {
     "babel-core": "^6.7.6",
