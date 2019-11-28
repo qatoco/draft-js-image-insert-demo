@@ -4,6 +4,8 @@
 
 https://zen-albattani-27c09c.netlify.com/
 
+- file upload version does not work
+
 ## setup
 
 ```sh
